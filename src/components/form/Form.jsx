@@ -4,7 +4,17 @@ import moment from "moment";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const Form = ({formElements, formTitle, submit, loading, edit, get, selectDate = false}) => {
+const Form = ({
+                  formElements,
+                  formTitle,
+                  submit,
+                  loading,
+                  edit,
+                  get,
+                  selectDate = false,
+                  showButtons = true,
+                  view = false
+              }) => {
     const [formData, setFormData] = useState({})
     const [startDate, setStartDate] = useState();
 
@@ -86,10 +96,12 @@ const Form = ({formElements, formTitle, submit, loading, edit, get, selectDate =
                         </div>
                         <div className="card-body">
                             <form>
-                                {selectDate ? <div className="row mb-2">
-                                    <div className="offset-8">
-                                        <DatePicker selected={startDate} onChange={(date) => checkDate(date)}
-                                                    minDate={moment().toDate()} placehodlerText="select a date"/>
+                                {selectDate ? <div className="form-row mb-2">
+                                    <label className="col-4">Select Date</label>
+                                    <div className="col">
+                                        <DatePicker className="form-control" selected={startDate}
+                                                    onChange={(date) => checkDate(date)}
+                                        />
                                     </div>
                                 </div> : ""}
                                 {formElements.map((formElement) => (
@@ -100,7 +112,7 @@ const Form = ({formElements, formTitle, submit, loading, edit, get, selectDate =
                                                 <input type="text" className="form-control"
                                                        value={formData[formElement.key]}
                                                        name={formElement.key}
-                                                       disabled={formElement.label === "Date" ? true : false}
+                                                       disabled={formElement.label === "Date" || view ? true : false}
                                                        onChange={(e) => {
                                                            handleChange(e.target.value, formElement.key)
                                                        }}
@@ -112,7 +124,7 @@ const Form = ({formElements, formTitle, submit, loading, edit, get, selectDate =
                                     </div>
                                 ))}
 
-                                <div className="mt-2">
+                                {showButtons ? <div className="mt-2">
                                     <div className="float-right">
                                         <button className="btn btn-sm btn-outline-primary" type="button"
                                                 disabled={loading}
@@ -127,7 +139,7 @@ const Form = ({formElements, formTitle, submit, loading, edit, get, selectDate =
                                                 onClick={clearAll}>Clear
                                         </button>
                                     </div>
-                                </div>
+                                </div> : ""}
                             </form>
                         </div>
                     </div>

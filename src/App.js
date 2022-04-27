@@ -9,6 +9,7 @@ import CashFlowForecast from "./components/form/CashFlowForecast";
 import CashDetails from "./components/form/CashDetails";
 import Particles from "react-tsparticles";
 import {detailsSum, getTotalOfDetails, loading} from "./services/api";
+import CashDetailsView from "./components/form/CashDetailsView";
 
 
 class App extends Component {
@@ -118,6 +119,9 @@ class App extends Component {
                         </Route>
                         <Route exact path="/cash-details-form">
                             <CashDetails/>
+                        </Route>
+                        <Route exact path="/cash-details-view">
+                            <CashDetailsView/>
                         </Route>
                     </switch>
                     <Footer columnsTotal={this.state.total} loading={loading}/>

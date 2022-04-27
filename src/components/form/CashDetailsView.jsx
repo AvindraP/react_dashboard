@@ -6,11 +6,6 @@ import {toast, ToastContainer} from "react-toastify";
 
 let formElements = [
     {
-        label: "Date",
-        key: "date",
-        error: false,
-    },
-    {
         label: "Daily Cheque deposit (DFCC & Com",
         key: "daily_cheque",
         error: false,
@@ -78,10 +73,17 @@ const CashDetails = () => {
         else toast.error("Something went wrong")
     }
 
+    const get = async (date) => {
+        setLoading(true)
+        await getDetail({date})
+        setLoading(false)
+        return details
+    }
+
     return (
         <React.Fragment>
             <Form formElements={formElements} formTitle="Cash Details Form" submit={onSubmit}
-                  loading={loading} edit={false}/>
+                  loading={loading} edit={false} get={get} selectDate={true} showButtons={false} view={true}/>
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
