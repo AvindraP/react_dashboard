@@ -14,7 +14,7 @@ const Home = () => {
             "to": moment().subtract(0, "days").format(dateFormat)
         })
         setData(cashFlows)
-        setTimeout(redirectTo, 3000)
+        setTimeout(redirectTo, 30000)
     }, [""]);
 
     const redirectTo = () => {

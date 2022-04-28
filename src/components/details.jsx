@@ -30,7 +30,7 @@ const Details = ({columnsTotal}) => {
                     <div className="card" style={{marginTop: "22px"}}>
                         {/* /.card-header */}
                         <div className="card-body p-1">
-                            <Table data={dataa} rowsPerPage={9}/>
+                            <Table data={dataa} rowsPerPage={6}/>
                             <div className="tab-content p-0">
                                 {/* Morris chart - Sales */}
                             </div>

@@ -19,6 +19,7 @@ const Table = ({data, rowsPerPage}) => {
     let i = 0;
 
     const autoPaginate = () => {
+        return
         setPage(0);
         setPg(pgNo + 1);
         setPage(pgNo);
@@ -40,7 +41,7 @@ const Table = ({data, rowsPerPage}) => {
                     table.find('._tr').addClass('tr-index-' + k)
                     table.find('.tr-index-' + k).addClass('zoom')
                     table.find('._tr').show('slow')
-                    table.find('.saturday').after("<tr class='_tr bg-danger'><td colspan='12'>Sunday</td></tr>")
+                    table.find('.saturday').after("<tr class='_tr bg-danger tr-index-"+(k + 1)+"'><td colspan='12'>Sunday</td></tr>")
                     table.find('.saturday').removeClass('saturday')
                 }, 500 * k)
             })
@@ -58,11 +59,13 @@ const Table = ({data, rowsPerPage}) => {
                         table.find('.tr-index-' + (k - 1)).removeClass('zoom')
                         timeout_4.current = setTimeout(() => {
                             if (page === range.length) {
-                                redirectTo()
+                                setTimeout(() => {
+                                    redirectTo()
+                                }, 5000)
                                 return
                             }
                             // row count
-                            if (slice.length === k + 1) setPage(page + 1)
+                            // if (slice.length === k + 1) setPage(page + 1)
                         }, 3000)
                     }, 3000 * k)
                 })
@@ -71,7 +74,6 @@ const Table = ({data, rowsPerPage}) => {
     }
 
     useEffect(() => {
-        console.log(page)
         const interval = setInterval(autoPaginate, duration);
         loopTr()
         return () => {
@@ -87,14 +89,14 @@ const Table = ({data, rowsPerPage}) => {
         <>
             <table
                 id="details-table"
-                className="table text-center"
+                className="table text-center details-table"
                 style={{backgroundColor: "#00000"}}
             >
                 <thead
                     className="neonText"
                     style={{
                         zindex: "1080",
-                        background: "#007bff",
+                        background: "rgb(120 119 119)",
                         columnRuleWidth: "",
                     }}
                 >

@@ -29,7 +29,7 @@ const Footer = ({columnsTotal, loading}) => {
             className="main"
             style={{
                 position: "absolute",
-                top: "53rem",
+                top: "48.4rem",
                 width: "100%"
             }}
         >
@@ -59,15 +59,24 @@ const Footer = ({columnsTotal, loading}) => {
                     {/*    <Marquees key={rates[country]} rate={rates[country]} country={country}/>*/}
                     {/*))}*/}
 
-                    <Rate key={'LKR'} country={'LKR'} rate={100} up={true}/>
-                    <Rate key={'INR'} country={'INR'} rate={200} up={false}/>
-                    <Rate key={'USD'} country={'USD'} rate={100} up={true}/>
-                    <Rate key={'AUD'} country={'AUD'} rate={200} up={false}/>
-                    <Rate key={'CAD'} country={'CAD'} rate={200} up={true}/>
-                    <Rate key={'CAD'} country={'CAD'} rate={200} up={false}/>
-                    <Rate key={'CAD'} country={'CAD'} rate={200} up={true}/>
-                    <Rate key={'CAD'} country={'CAD'} rate={200} up={false}/>
-                    <Rate key={'CAD'} country={'CAD'} rate={200} up={true}/>
+                    <Rate key={'INR'} country={'INR'} rate={0.50} up={false}/>
+                    <Rate key={'USD'} country={'USD'} rate={20} up={false}/>
+                    <Rate key={'AUD'} country={'AUD'} rate={15} up={true}/>
+                    <Rate key={'SAR'} country={'SAR'} rate={2.50} up={false}/>
+                    <Rate key={'GBP'} country={'GBP'} rate={5.45} up={false}/>
+                    <Rate key={'JPY'} country={'JPY'} rate={0.10} up={true}/>
+                    <Rate key={'CHF'} country={'CHF'} rate={20} up={false}/>
+                    <Rate key={'CZK'} country={'CZK'} rate={1.50} up={true}/>
+                    <Rate key={'CUC'} country={'CUC'} rate={12} up={false}/>
+                    <Rate key={'HRK'} country={'HRK'} rate={11} up={false}/>
+                    <Rate key={'CUP'} country={'CUP'} rate={7.32} up={true}/>
+                    <Rate key={'CYP'} country={'CYP'} rate={4} up={false}/>
+                    <Rate key={'CZK'} country={'CZK'} rate={0.91} up={true}/>
+                    <Rate key={'DOP'} country={'DOP'} rate={8.1} up={false}/>
+                    <Rate key={'DJF'} country={'DJF'} rate={3.43} up={true}/>
+                    <Rate key={'XCD'} country={'XCD'} rate={0.1} up={true}/>
+                    <Rate key={'ISK'} country={'ISK'} rate={2.4} up={false}/>
+                    <Rate key={'IRR'} country={'IRR'} rate={0.90} up={true}/>
                 </Marquee>
             </div>
         </footer>

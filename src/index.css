@@ -68,6 +68,11 @@ code {
     border: 0px solid;
 }
 
+.details-table tbody tr td {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 .border-tr {
     height: 0.4rem;
     background-color: #06060600;
